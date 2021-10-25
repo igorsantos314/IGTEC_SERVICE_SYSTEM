@@ -1,7 +1,8 @@
 from tkinter import *
+from tkinter import ttk
 import base64
 from time import sleep
-import _thread as th
+from util import util
 
 class Tela_Principal:
 
@@ -10,12 +11,14 @@ class Tela_Principal:
         self.font_menu = 'Calibri 14 bold'
         self.font_titulo = 'Calibri 24 bold'
         self.font_msg = 'Calibri 12 bold'
+        self.font_default = 'Calibri 14'
 
         self.color_theme = 'Black'
         self.color_contrast = 'White'
         self.dict_color_msg = {"info": "Green", "warning": "DarkOrange", "error": "Red"}
-
-        self.height_window = 550
+        self.color_ask = 'SlateBlue'
+        
+        self.height_window = 532
 
         #CARREGA AS IMAGENS PARA O SISTEMA
         self.setImagensBase64()
@@ -30,6 +33,8 @@ class Tela_Principal:
     
     def window(self):
         self.windowMain = Tk()
+        self.windowMain.geometry(util().toCenterScreen(850, 532))
+        self.windowMain['bg'] = 'Yellow'
         self.windowMain.title("IGTEC - SERVICE SYSTEM")
         self.windowMain.resizable(False, False)
         
@@ -37,7 +42,7 @@ class Tela_Principal:
         self.menu()
 
         #ABRIR HOME
-        self.home()
+        self.unhas()
 
         self.windowMain.mainloop()
 
@@ -124,11 +129,93 @@ class Tela_Principal:
         self.frameUnhas = Frame(self.windowMain, width=750, height=self.height_window, bg=self.color_contrast)
         self.frameUnhas.pack(side=RIGHT)
 
-        lblTitulo = Label(self.frameUnhas, text='UNHAS', font=self.font_titulo, bg=self.color_contrast)
-        lblTitulo.place(x=325, y=10)
+        lblTitulo = Label(self.frameUnhas, text='UNHAS', font=self.font_titulo, bg=self.color_contrast, width=44)
+        lblTitulo.place(x=0, y=10)
         
-        bt = Button(self.frameUnhas, command=lambda: self.msg("error", "UNHA CADASTRADA!"))
-        bt.place(x=0, y=100)
+        #NOME DO CLIENTE
+        lblNomeCliente = Label(self.frameUnhas, text='Nome Cliente:', font=self.font_default, bg=self.color_contrast)
+        lblNomeCliente.place(x=50, y=70)
+
+        etNomeCliente = Entry(self.frameUnhas, font=self.font_default, width=65)
+        etNomeCliente.place(x=50, y=100)
+
+        #DATA
+        lblData = Label(self.frameUnhas, text='Data:', font=self.font_default, bg=self.color_contrast)
+        lblData.place(x=50, y=140)
+
+        etData = Entry(self.frameUnhas, font=self.font_default, width=20)
+        etData.insert(0, util().getData())
+        etData.place(x=50, y=170)
+
+        #HORA
+        lblHora = Label(self.frameUnhas, text='Hora:', font=self.font_default, bg=self.color_contrast)
+        lblHora.place(x=270, y=140)
+
+        etHora = Entry(self.frameUnhas, font=self.font_default, width=20)
+        etHora.place(x=270, y=170)
+
+        #SERVIÇO
+        lblServico = Label(self.frameUnhas, text='Serviço:', font=self.font_default, bg=self.color_contrast)
+        lblServico.place(x=50, y=210)
+
+        comboServico = ttk.Combobox(self.frameUnhas, font=self.font_default, width=18, state="readonly")
+        
+        comboServico['values'] = tuple(
+            ['MANICURE', 'PEDICURE', 'MANICURE+PEDICURE', 'ESMALTAÇÃO', 'PLANO MENSAL'])
+        comboServico.current(2)
+        comboServico.place(x=50, y=240)
+        
+        #VALOR
+        lblValor = Label(self.frameUnhas, text='Valor:', font=self.font_default, bg=self.color_contrast)
+        lblValor.place(x=270, y=210)
+
+        etValor = Entry(self.frameUnhas, font=self.font_default, width=20)
+        etValor.insert(0, "0,00")
+        etValor.place(x=270, y=240)
+
+        #VALOR
+        lblDesconto = Label(self.frameUnhas, text='Desconto:', font=self.font_default, bg=self.color_contrast)
+        lblDesconto.place(x=490, y=210)
+
+        etDesconto = Entry(self.frameUnhas, font=self.font_default, width=20)
+        etDesconto.insert(0, "0,00")
+        etDesconto.place(x=490, y=240)
+
+        #PAGAMENTO
+        lblPagamento = Label(self.frameUnhas, text='Forma de pagamento:', font=self.font_default, bg=self.color_contrast)
+        lblPagamento.place(x=50, y=280)
+
+        comboPagamento = ttk.Combobox(self.frameUnhas, font=self.font_default, width=18, state="readonly")
+        
+        comboPagamento['values'] = tuple(
+            ['DINHEIRO', 'CARTÃO', 'PIX', 'OUTRO'])
+        comboPagamento.current(0)
+        comboPagamento.place(x=50, y=310)
+
+        #OBSERVAÇÃO
+        lblObs = Label(self.frameUnhas, text='Observações:', font=self.font_default, bg=self.color_contrast)
+        lblObs.place(x=270, y=280)
+
+        etObs = Entry(self.frameUnhas, font=self.font_default, width=42)
+        etObs.place(x=270, y=310)
+
+        def salvar():
+            #SALVA DADOS NO BANCO DE DADOS
+            self.msg("info", f"SERVIÇO DE {comboServico.get()} CADASTRADO !")
+
+        def pergunta():
+            #EXECUTA A PERGUNTA CASO APERTE SIM
+            self.ask(f"SALVAR SERVIÇO DE {comboServico.get()} ?", salvar)
+
+        #BPTÃO DE SALVAR
+        btSalvar = Button(self.frameUnhas, text='Salvar', font=self.font_menu, bd=0, bg='Green', fg=self.color_contrast, width=10, command=pergunta)
+        btSalvar.place(x=50, y=400)
+        
+        btSalvar = Button(self.frameUnhas, text='Cancelar', font=self.font_menu, bd=0, bg='Red', fg=self.color_contrast, width=10)
+        btSalvar.place(x=160, y=400)
+
+        #FOCAR NO CAMPO DE NOME
+        etNomeCliente.focus_force()
 
         #ATRIBUI AO FRAME ATUAL
         self.current_frame = self.frameUnhas
@@ -147,10 +234,93 @@ class Tela_Principal:
         self.btSobrancelhas.image = imagem_sobrancelhas_black
         self.current_setor = self.btSobrancelhas
 
-        #FRAME DE EXIBIÇÃO HOME
+        #FRAME DE EXIBIÇÃO OLHOS
         self.frameOlhos = Frame(self.windowMain, width=750, height=self.height_window, bg=self.color_contrast)
         self.frameOlhos.pack(side=RIGHT)
         
+        lblTitulo = Label(self.frameOlhos, text='SOBRANCELHAS', font=self.font_titulo, bg=self.color_contrast, width=44)
+        lblTitulo.place(x=0, y=10)
+
+        #NOME DO CLIENTE
+        lblNomeCliente = Label(self.frameOlhos, text='Nome Cliente:', font=self.font_default, bg=self.color_contrast)
+        lblNomeCliente.place(x=50, y=70)
+
+        etNomeCliente = Entry(self.frameOlhos, font=self.font_default, width=65)
+        etNomeCliente.place(x=50, y=100)
+
+        #DATA
+        lblData = Label(self.frameOlhos, text='Data:', font=self.font_default, bg=self.color_contrast)
+        lblData.place(x=50, y=140)
+
+        etData = Entry(self.frameOlhos, font=self.font_default, width=20)
+        etData.insert(0, util().getData())
+        etData.place(x=50, y=170)
+
+        #HORA
+        lblHora = Label(self.frameOlhos, text='Hora:', font=self.font_default, bg=self.color_contrast)
+        lblHora.place(x=270, y=140)
+
+        etHora = Entry(self.frameOlhos, font=self.font_default, width=20)
+        etHora.place(x=270, y=170)
+
+        #SERVIÇO
+        lblServico = Label(self.frameOlhos, text='Serviço:', font=self.font_default, bg=self.color_contrast)
+        lblServico.place(x=50, y=210)
+
+        comboServico = ttk.Combobox(self.frameOlhos, font=self.font_default, width=18, state="readonly")
+        
+        comboServico['values'] = tuple(
+            ['DESIGN', 'DESIGN + HENA', 'HENA', 'MANUTENÇÃO', 'PLANO MENSAL', 'OUTRO'])
+        comboServico.current(0)
+        comboServico.place(x=50, y=240)
+        
+        #VALOR
+        lblValor = Label(self.frameOlhos, text='Valor:', font=self.font_default, bg=self.color_contrast)
+        lblValor.place(x=270, y=210)
+
+        etValor = Entry(self.frameOlhos, font=self.font_default, width=20)
+        etValor.insert(0, "0,00")
+        etValor.place(x=270, y=240)
+
+        #VALOR
+        lblDesconto = Label(self.frameOlhos, text='Desconto:', font=self.font_default, bg=self.color_contrast)
+        lblDesconto.place(x=490, y=210)
+
+        etDesconto = Entry(self.frameOlhos, font=self.font_default, width=20)
+        etDesconto.insert(0, "0,00")
+        etDesconto.place(x=490, y=240)
+
+        #PAGAMENTO
+        lblPagamento = Label(self.frameOlhos, text='Forma de pagamento:', font=self.font_default, bg=self.color_contrast)
+        lblPagamento.place(x=50, y=280)
+
+        comboPagamento = ttk.Combobox(self.frameOlhos, font=self.font_default, width=18, state="readonly")
+        
+        comboPagamento['values'] = tuple(
+            ['DINHEIRO', 'CARTÃO', 'PIX', 'OUTRO'])
+        comboPagamento.current(0)
+        comboPagamento.place(x=50, y=310)
+
+        #OBSERVAÇÃO
+        lblObs = Label(self.frameOlhos, text='Observações:', font=self.font_default, bg=self.color_contrast)
+        lblObs.place(x=270, y=280)
+
+        etObs = Entry(self.frameOlhos, font=self.font_default, width=42)
+        etObs.place(x=270, y=310)
+
+        def salvar():
+            self.msg("info", f"SERVIÇO DE {comboServico.get()} CADASTRADO !")
+            
+        #BPTÃO DE SALVAR
+        btSalvar = Button(self.frameOlhos, text='Salvar', font=self.font_menu, bd=0, bg='Green', fg=self.color_contrast, width=10, command=salvar)
+        btSalvar.place(x=50, y=400)
+        
+        btSalvar = Button(self.frameOlhos, text='Cancelar', font=self.font_menu, bd=0, bg='Red', fg=self.color_contrast, width=10)
+        btSalvar.place(x=160, y=400)
+
+        #FOCAR NO CAMPO DE NOME
+        etNomeCliente.focus_force()
+
         #ATRIBUI AO FRAME ATUAL
         self.current_frame = self.frameOlhos
 
@@ -168,9 +338,92 @@ class Tela_Principal:
         self.btCroche.image = imagem_croche_black
         self.current_setor = self.btCroche
 
-        #FRAME DE EXIBIÇÃO HOME
+        #FRAME DE EXIBIÇÃO CROCHE
         self.frameCroche = Frame(self.windowMain, width=750, height=self.height_window, bg=self.color_contrast)
         self.frameCroche.pack(side=RIGHT)
+
+        lblTitulo = Label(self.frameCroche, text='CROCHÊ', font=self.font_titulo, bg=self.color_contrast, width=44)
+        lblTitulo.place(x=0, y=10)
+
+        #NOME DO CLIENTE
+        lblNomeCliente = Label(self.frameCroche, text='Nome Cliente:', font=self.font_default, bg=self.color_contrast)
+        lblNomeCliente.place(x=50, y=70)
+
+        etNomeCliente = Entry(self.frameCroche, font=self.font_default, width=65)
+        etNomeCliente.place(x=50, y=100)
+
+        #DATA
+        lblData = Label(self.frameCroche, text='Data:', font=self.font_default, bg=self.color_contrast)
+        lblData.place(x=50, y=140)
+
+        etData = Entry(self.frameCroche, font=self.font_default, width=20)
+        etData.insert(0, util().getData())
+        etData.place(x=50, y=170)
+
+        #HORA
+        lblHora = Label(self.frameCroche, text='Hora:', font=self.font_default, bg=self.color_contrast)
+        lblHora.place(x=270, y=140)
+
+        etHora = Entry(self.frameCroche, font=self.font_default, width=20)
+        etHora.place(x=270, y=170)
+
+        #SERVIÇO
+        lblServico = Label(self.frameCroche, text='Serviço:', font=self.font_default, bg=self.color_contrast)
+        lblServico.place(x=50, y=210)
+
+        comboServico = ttk.Combobox(self.frameCroche, font=self.font_default, width=18, state="readonly")
+        
+        comboServico['values'] = tuple(
+            ['DESIGN', 'DESIGN + HENA', 'HENA', 'MANUTENÇÃO', 'PLANO MENSAL', 'OUTRO'])
+        comboServico.current(0)
+        comboServico.place(x=50, y=240)
+        
+        #VALOR
+        lblValor = Label(self.frameCroche, text='Valor:', font=self.font_default, bg=self.color_contrast)
+        lblValor.place(x=270, y=210)
+
+        etValor = Entry(self.frameCroche, font=self.font_default, width=20)
+        etValor.insert(0, "0,00")
+        etValor.place(x=270, y=240)
+
+        #VALOR
+        lblDesconto = Label(self.frameCroche, text='Desconto:', font=self.font_default, bg=self.color_contrast)
+        lblDesconto.place(x=490, y=210)
+
+        etDesconto = Entry(self.frameCroche, font=self.font_default, width=20)
+        etDesconto.insert(0, "0,00")
+        etDesconto.place(x=490, y=240)
+
+        #PAGAMENTO
+        lblPagamento = Label(self.frameCroche, text='Forma de pagamento:', font=self.font_default, bg=self.color_contrast)
+        lblPagamento.place(x=50, y=280)
+
+        comboPagamento = ttk.Combobox(self.frameCroche, font=self.font_default, width=18, state="readonly")
+        
+        comboPagamento['values'] = tuple(
+            ['DINHEIRO', 'CARTÃO', 'PIX', 'OUTRO'])
+        comboPagamento.current(0)
+        comboPagamento.place(x=50, y=310)
+
+        #OBSERVAÇÃO
+        lblObs = Label(self.frameCroche, text='Observações:', font=self.font_default, bg=self.color_contrast)
+        lblObs.place(x=270, y=280)
+
+        etObs = Entry(self.frameCroche, font=self.font_default, width=42)
+        etObs.place(x=270, y=310)
+
+        def salvar():
+            self.msg("info", f"SERVIÇO DE {comboServico.get()} CADASTRADO !")
+            
+        #BPTÃO DE SALVAR
+        btSalvar = Button(self.frameCroche, text='Salvar', font=self.font_menu, bd=0, bg='Green', fg=self.color_contrast, width=10, command=salvar)
+        btSalvar.place(x=50, y=400)
+        
+        btSalvar = Button(self.frameCroche, text='Cancelar', font=self.font_menu, bd=0, bg='Red', fg=self.color_contrast, width=10)
+        btSalvar.place(x=160, y=400)
+
+        #FOCAR NO CAMPO DE NOME
+        etNomeCliente.focus_force()
 
         #ATRIBUI AO FRAME ATUAL
         self.current_frame = self.frameCroche
@@ -189,9 +442,12 @@ class Tela_Principal:
         self.btCalendario.image = imagem_calendario_black
         self.current_setor = self.btCalendario
 
-        #FRAME DE EXIBIÇÃO HOME
+        #FRAME DE EXIBIÇÃO SERVIÇOS
         self.frameServicos = Frame(self.windowMain, width=750, height=self.height_window, bg=self.color_contrast)
         self.frameServicos.pack(side=RIGHT)
+
+        lblTitulo = Label(self.frameServicos, text='SERVIÇOS', font=self.font_titulo, bg=self.color_contrast, width=44)
+        lblTitulo.place(x=0, y=10)
 
         #ATRIBUI AO FRAME ATUAL
         self.current_frame = self.frameServicos
@@ -210,12 +466,12 @@ class Tela_Principal:
         self.btConfig.image = imagem_config_black
         self.current_setor = self.btConfig
 
-        #FRAME DE EXIBIÇÃO HOME
+        #FRAME DE EXIBIÇÃO AJUSTES
         self.frameAjustes = Frame(self.windowMain, width=750, height=self.height_window, bg=self.color_contrast)
         self.frameAjustes.pack(side=RIGHT)
         
-        lblTitulo = Label(self.frameAjustes, text='AJUSTES', font=self.font_titulo, bg=self.color_contrast)
-        lblTitulo.place(x=325, y=10)
+        lblTitulo = Label(self.frameAjustes, text='AJUSTES', font=self.font_titulo, bg=self.color_contrast, width=44)
+        lblTitulo.place(x=0, y=10)
 
         #ATRIBUI AO FRAME ATUAL
         self.current_frame = self.frameAjustes
@@ -232,20 +488,61 @@ class Tela_Principal:
             #APAGA A ATUAL
             self.frame_msg.destroy()
 
+        #FRAMA QUE ARMAZENA OS COMPONENTES DA MENSAGEM
         self.frame_msg = Frame(self.current_frame, width=750, height=35, bg=self.dict_color_msg[type])
-        self.frame_msg.place(x=0, y=515)
+        self.frame_msg.place(x=0, y=498)
+
+        #FOCAR APENAS NA MENSAGEM
+        self.frame_msg.grab_set()
 
         #EXIBE A MENSAGEM
         lblMsg = Label(self.frame_msg, text=msg, font=self.font_msg, bg=self.dict_color_msg[type], fg=self.color_contrast)
         lblMsg.place(x=0, y=5)
 
-        btOk = Button(self.frame_msg, text="OK", font=self.font_msg, fg=self.dict_color_msg[type], bg=self.color_contrast, bd=0, width=10, height=0, command=self.destroyMsg)
+        btOk = Button(self.frame_msg, text="OK", font=self.font_msg, fg=self.dict_color_msg[type], bg=self.color_contrast, bd=0, width=10, height=0, command=lambda: self.destroyMsg(None))
         btOk.place(x=660, y=3)
 
-        #CONTA O TEMPO EM PARALELO
-        #th.start_new_thread(self.timeDestroyMsg, ())
+        #FOCA NO BOTÃO
+        btOk.focus_force()
+        
+        #PROCURA O APERTA DO ENTER
+        btOk.bind("<Return>", self.destroyMsg)
 
-    def destroyMsg(self):
+    def ask(self, msg, command):
+        
+        #CASO JÁ EXISTA UMA MENSAGEM
+        if self.frame_msg:
+            #APAGA A ATUAL
+            self.frame_msg.destroy()
+
+        #FRAMA QUE ARMAZENA OS COMPONENTES DA MENSAGEM
+        self.frame_msg = Frame(self.current_frame, width=750, height=35, bg=self.color_ask)
+        self.frame_msg.place(x=0, y=498)
+
+        #FOCAR APENAS NA MENSAGEM
+        self.frame_msg.grab_set()
+
+        def yes(event):
+            #EXECUTA A FUNÇÃO RECEBIDA DO BOTÃO
+            command()
+
+        #EXIBE A MENSAGEM
+        lblMsg = Label(self.frame_msg, text=msg, font=self.font_msg, bg=self.color_ask, fg=self.color_contrast)
+        lblMsg.place(x=0, y=5)
+
+        btYes = Button(self.frame_msg, text="Sim", font=self.font_msg, fg=self.color_ask, bg=self.color_contrast, bd=0, width=10, height=0, command=lambda: yes(None))
+        btYes.place(x=560, y=3)
+
+        btNo = Button(self.frame_msg, text="Não", font=self.font_msg, fg=self.color_ask, bg=self.color_contrast, bd=0, width=10, height=0, command=lambda: self.destroyMsg(None))
+        btNo.place(x=660, y=3)
+
+        #FOCA NO BOTÃO
+        btYes.focus_force()
+        
+        #PROCURA O APERTA DO ENTER
+        btYes.bind("<Return>", yes)
+
+    def destroyMsg(self, event):
         #APAGA A MENSAGEM
         self.frame_msg.destroy()
 
