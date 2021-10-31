@@ -50,6 +50,24 @@ class Persistencia:
         # SALVAR NO DICIONARIO
         self.db.child("Servicos").child(id).set(data_service)
 
+    def getTipoServicos(self):
+        #PEGA OS TIPO DO FIREBASE
+        list_tipos_servicos = self.db.child("TipoServicos").get().each()
+
+        #RETORNA A LISTA DOS TIPOS DE SERVIÇOS
+        return [tipo.val() for tipo in list_tipos_servicos]
+
+    def getSubcategorias(self, categoria):
+        #PEGA AS SUBCATEGORIAS DO FIREBASE
+        list_subcategorias = self.db.child("Subcategoria1").child(categoria).get().each()
+
+        if list_subcategorias == None:
+            return []
+
+        #RETORNA A LISTA DE SUBCATEGORIAS
+        return [tipo.val() for tipo in list_subcategorias]
+
+#print(Persistencia().getTipoServicos())
 """Persistencia().insertServico(
     'igor',
     'água fria',

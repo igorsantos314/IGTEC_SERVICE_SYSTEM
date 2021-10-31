@@ -1,64 +1,46 @@
-10/30/2021 07:25:02 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:25:02 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:25:02 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 253 
-10/30/2021 07:25:03 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/1.json HTTP/1.1" 200 234 
-10/30/2021 07:25:52 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:25:52 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:25:53 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 4 
-10/30/2021 07:25:53 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/0.json HTTP/1.1" 200 234 
-10/30/2021 07:26:49 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:26:49 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:26:50 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 236 
-10/30/2021 07:26:50 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/1.json HTTP/1.1" 200 234 
-10/30/2021 07:27:40 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:27:40 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:27:41 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 471 
-10/30/2021 07:27:41 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/2.json HTTP/1.1" 200 234 
-10/30/2021 07:28:32 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:28:32 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:28:33 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 706 
-10/30/2021 07:28:33 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/3.json HTTP/1.1" 200 234 
-10/30/2021 07:28:46 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:28:46 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:28:47 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 941 
-10/30/2021 07:28:47 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/4.json HTTP/1.1" 200 234 
-10/30/2021 07:29:52 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:29:52 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:29:52 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Ellen/Servicos.json HTTP/1.1" 200 4 
-10/30/2021 07:29:53 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/0.json HTTP/1.1" 200 234 
-10/30/2021 07:31:07 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:31:08 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:31:08 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Ellen/Servicos.json HTTP/1.1" 200 4 
-10/30/2021 07:31:08 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/0.json HTTP/1.1" 200 234 
-10/30/2021 07:31:20 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:31:20 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:31:21 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Ellen/Servicos.json HTTP/1.1" 200 4 
-10/30/2021 07:31:21 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/0.json HTTP/1.1" 200 234 
-10/30/2021 07:31:24 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:31:24 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:31:25 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Ellen/Servicos.json HTTP/1.1" 200 4 
-10/30/2021 07:31:25 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/0.json HTTP/1.1" 200 234 
-10/30/2021 07:32:29 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:32:29 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:32:29 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Ellen/Servicos.json HTTP/1.1" 200 4 
-10/30/2021 07:32:29 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/0.json HTTP/1.1" 200 234 
-10/30/2021 07:33:31 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:33:31 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:33:31 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 236 
-10/30/2021 07:33:32 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/1.json HTTP/1.1" 200 234 
-10/30/2021 07:34:57 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:34:57 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:34:58 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 4 
-10/30/2021 07:34:58 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/0.json HTTP/1.1" 200 234 
-10/30/2021 07:36:19 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:36:19 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:36:20 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 236 
-10/30/2021 07:36:20 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/1.json HTTP/1.1" 200 234 
-10/30/2021 07:37:47 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:37:47 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:37:48 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 471 
-10/30/2021 07:37:48 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/2.json HTTP/1.1" 200 287 
-10/30/2021 07:41:46 PM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
-10/30/2021 07:41:46 PM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
-10/30/2021 07:41:46 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 759 
-10/30/2021 07:41:47 PM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/3.json HTTP/1.1" 200 234 
+10/31/2021 09:26:15 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:26:15 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:26:15 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:26:32 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:26:32 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:26:33 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:26:59 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:26:59 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:27:00 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:27:03 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:27:03 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:27:03 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:27:04 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:27:04 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:27:04 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:27:05 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:27:05 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:27:05 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:27:06 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:27:06 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:27:07 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:27:10 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:27:10 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:27:11 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Subcategoria1/Beleza.json HTTP/1.1" 200 102 
+10/31/2021 09:27:13 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:27:13 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:27:14 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Subcategoria1/Beleza.json HTTP/1.1" 200 102 
+10/31/2021 09:28:06 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:28:06 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:28:07 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:28:13 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:28:13 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:28:14 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Subcategoria1/Consultoria.json HTTP/1.1" 200 4 
+10/31/2021 09:28:20 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:28:20 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:28:21 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Subcategoria1/Beleza.json HTTP/1.1" 200 102 
+10/31/2021 09:31:33 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:31:33 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:31:34 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:31:41 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:31:41 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:31:42 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /TipoServicos.json HTTP/1.1" 200 54 
+10/31/2021 09:32:39 AM::DEBUG::Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None) 
+10/31/2021 09:32:39 AM::DEBUG::Starting new HTTPS connection (1): igtec-service-system-default-rtdb.firebaseio.com:443 
+10/31/2021 09:32:40 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "GET /Servicos.json HTTP/1.1" 200 605 
+10/31/2021 09:32:40 AM::DEBUG::https://igtec-service-system-default-rtdb.firebaseio.com:443 "PUT /Servicos/2.json HTTP/1.1" 200 216 
